@@ -23,6 +23,16 @@ app.get('/about', (req, res) => {
   res.render('home/about');
 });
 
+// Setting up the route for logging in
+app.get('/login', (req, res) => {
+  res.render('home/login');
+});
+
+// Setting up the route for registering for the app
+app.get('/register', (req, res) => {
+  res.render('home/register');
+});
+
 // Set the app to listen on a specific port
 app.listen(port, err => {
   if (err) {
