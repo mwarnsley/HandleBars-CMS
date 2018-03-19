@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -10,6 +11,11 @@ mongoose
   .connect('mongodb://localhost:27017/handlebars-cms')
   .then(() => console.log('MongoDB Connect...'))
   .catch(error => console.log('Error: ', error));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
+// parse application/json
+app.use(bodyParser.json());
 
 // Getting the main routes from the home routes folder to use
 const home = require('./routes/home/index');
