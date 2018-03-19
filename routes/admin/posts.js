@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+// Render the main route to show the post
 router.get('/', (req, res) => {
   res.send('POST');
+});
+
+// Render the route to create a new post
+router.get('/create', (req, res) => {
+  res.render('admin/posts/create');
 });
 
 module.exports = router;
