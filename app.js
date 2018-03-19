@@ -4,6 +4,9 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = process.env.PORT || 4000;
 
+// Getting the main routes from the home routes folder to use
+const main = require('./routes/home/main');
+
 // Express middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -13,25 +16,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'home'}));
 // Setting up the express middleware for setting the view engine
 app.set('view engine', 'handlebars');
 
-// Setting up the main index route
-app.get('/', (req, res) => {
-  res.render('home/index');
-});
-
-// Setting up the about page route
-app.get('/about', (req, res) => {
-  res.render('home/about');
-});
-
-// Setting up the route for logging in
-app.get('/login', (req, res) => {
-  res.render('home/login');
-});
-
-// Setting up the route for registering for the app
-app.get('/register', (req, res) => {
-  res.render('home/register');
-});
+// Using the middelware for the main routes
+app.use('/', main);
 
 // Set the app to listen on a specific port
 app.listen(port, err => {
