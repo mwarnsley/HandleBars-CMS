@@ -12,11 +12,6 @@ mongoose
   .then(() => console.log('MongoDB Connect...'))
   .catch(error => console.log('Error: ', error));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}));
-// parse application/json
-app.use(bodyParser.json());
-
 // Getting the main routes from the home routes folder to use
 const home = require('./routes/home/index');
 const admin = require('./routes/admin/index');
@@ -30,6 +25,11 @@ app.engine('handlebars', exphbs({defaultLayout: 'home'}));
 
 // Setting up the express middleware for setting the view engine
 app.set('view engine', 'handlebars');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}));
+// parse application/json
+app.use(bodyParser.json());
 
 // Using the middelware for the main routes
 app.use('/', home);

@@ -3,6 +3,12 @@ const router = express.Router();
 
 const Post = require('../../models/Post');
 
+// Rendering the admin layout
+router.all('/*', (req, res, next) => {
+  req.app.locals.layout = 'admin';
+  next();
+});
+
 // Render the main route to show the post
 router.get('/', (req, res) => {
   res.send('POST');
@@ -19,13 +25,16 @@ router.post('/create', (req, res) => {
   if (!req.body.allowComments) {
     allowComments = false;
   }
-  const newPost = Post({
+  const newPost = new Post({
     title: req.body.title,
     status: req.body.status,
     allowComments,
     body: req.body.body,
   });
-  res.send('POSTED');
+  newPost
+    .save()
+    .then(() => res.redirect('/admin/posts'))
+    .catch(error => console.log('Error Saving Post: ', error));
 });
 
 module.exports = router;
