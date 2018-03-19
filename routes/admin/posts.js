@@ -11,4 +11,9 @@ router.get('/create', (req, res) => {
   res.render('admin/posts/create');
 });
 
+// Route that lets you post the created post
+router.post('/create', (req, res) => {
+  res.send('POSTED');
+});
+
 module.exports = router;
