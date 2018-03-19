@@ -5,7 +5,8 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Getting the main routes from the home routes folder to use
-const main = require('./routes/home/main');
+const home = require('./routes/home/index');
+const admin = require('./routes/admin/index');
 
 // Express middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -17,7 +18,10 @@ app.engine('handlebars', exphbs({defaultLayout: 'home'}));
 app.set('view engine', 'handlebars');
 
 // Using the middelware for the main routes
-app.use('/', main);
+app.use('/', home);
+
+// Using the middelware for the admin routes
+app.use('/admin', admin);
 
 // Set the app to listen on a specific port
 app.listen(port, err => {
