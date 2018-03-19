@@ -1,0 +1,24 @@
+{
+  "name": "handlebars-cms",
+  "version": "1.0.0",
+  "description": "CMS made using handlebars and node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwarnsley/HandleBars-CMS.git"
+  },
+  "keywords": [
+    "cms",
+    "handlebars",
+    "node"
+  ],
+  "author": "Marcus Warnsley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwarnsley/HandleBars-CMS/issues"
+  },
+  "homepage": "https://github.com/mwarnsley/HandleBars-CMS#readme"
+}
