@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+// Setting the layout for the home page
+router.all('/*', (req, res, next) => {
+  req.app.locals.layout = 'home';
+  next();
+});
+
 // Setting up the main index route
 router.get('/', (req, res) => {
   res.render('home/index');

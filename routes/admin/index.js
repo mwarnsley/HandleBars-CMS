@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Setting the layout for the admin page
 router.all('/*', (req, res, next) => {
   req.app.locals.layout = 'admin';
   next();

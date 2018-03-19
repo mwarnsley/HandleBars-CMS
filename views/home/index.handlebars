@@ -1,16 +1,9 @@
-
 <div class="row">
-
     <!-- Blog Entries Column -->
     <div class="col-md-8">
-
         <h1 class="my-4">Home
-
         </h1>
-
-
         {{#each posts}}
-
         <!-- Blog Post -->
         <div class="card mb-4">
             <img class="card-img-top" src="/uploads/{{file}}" alt="Card image cap">
@@ -24,27 +17,13 @@
                 <a href="#">Start Bootstrap</a>
             </div>
         </div>
-
         {{/each}}
-
-
-
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
-
             {{#paginate current=current pages=pages}}{{/paginate}}
-
         </ul>
-
     </div>
-
-
-
     <!-- Sidebar Widgets Column -->
-
     {{> home/_sidebar}}
-
-
-
 </div>
 <!-- /.row -->

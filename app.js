@@ -7,6 +7,7 @@ const port = process.env.PORT || 4000;
 // Getting the main routes from the home routes folder to use
 const home = require('./routes/home/index');
 const admin = require('./routes/admin/index');
+const posts = require('./routes/admin/posts');
 
 // Express middleware for serving static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,6 +23,9 @@ app.use('/', home);
 
 // Using the middelware for the admin routes
 app.use('/admin', admin);
+
+// Using the middleware for the post routes
+app.use('/admin/posts', posts);
 
 // Set the app to listen on a specific port
 app.listen(port, err => {
